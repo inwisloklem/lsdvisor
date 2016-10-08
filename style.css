@@ -1,0 +1,135 @@
+@keyframes rotate-colors {
+  0% {
+    filter: hue-rotate(0deg) saturate(100%);
+    -webkit-filter: hue-rotate(0deg) saturate(100%);
+  }
+  50% {
+    filter: hue-rotate(180deg) saturate(150%);
+    -webkit-filter: hue-rotate(180deg) saturate(200%);
+  }
+  100% {
+    filter: hue-rotate(360deg) saturate(100%);
+    -webkit-filter: hue-rotate(360deg) saturate(100%);
+  }
+}
+
+.picture-container {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+
+.picture-container #main-picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+  animation: rotate-colors 10s linear infinite;
+}
+
+.main-menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 150px;
+  background-color: black;
+  text-align: center;
+}
+
+.spinner-spin li {
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 30px;
+  width: 160px;
+  height: 90px;
+}
+
+.spinner-master * {
+  transition: all 0.7s linear;
+  -webkit-transition: all 0.7s linear;
+  box-sizing: border-box;
+}
+
+.spinner-master {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  height: 50px;
+  width: 50px;
+  z-index: 100;
+}
+
+.spinner-master input[type="checkbox"] {
+  display: none;
+}
+
+.spinner-master label {
+  cursor: pointer;
+  position: absolute;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+  top: 10px;
+  left: 0;
+}
+
+.spinner-master .spinner {
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  background-color: gray;
+}
+
+.spinner-master .diagonal.part-1 {
+  position: relative;
+  float: left;
+}
+
+.spinner-master .horizontal {
+  position: relative;
+  float: left;
+  margin-top: 7px;
+}
+
+.spinner-master .diagonal.part-2 {
+  position: relative;
+  float: left;
+  margin-top: 6px;
+}
+
+.spinner-master input[type="checkbox"]:checked ~ .spinner-spin > .horizontal {
+  opacity: 0;
+}
+
+.spinner-master input[type="checkbox"]:checked ~ .spinner-spin > .diagonal.part-1 {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  margin-top: 10px;
+}
+
+.spinner-master input[type="checkbox"]:checked ~ .spinner-spin > .diagonal.part-2 {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  margin-top: -16px;
+}
+
+.spinner-spin > nav {
+  opacity: 0;
+}
+
+.spinner-spin a:hover {
+  opacity: 0.5;
+}
+
+.spinner-master input[type="checkbox"]:checked ~ .spinner-spin > nav {
+  opacity: 1;
+}
